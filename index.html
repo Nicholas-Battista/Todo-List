@@ -40,12 +40,16 @@
                 >Due Date:
                 <input type="date" name="date" id="date" />
               </label>
-              <label for="checkbox"
-                >Priority:
-                <input type="checkbox" id="low" />
-                <input type="checkbox" id="medium" />
-                <input type="checkbox" id="high" />
-              </label>
+
+              <div class="priority">
+                <h3>Priority:</h3>
+                <input type="radio" name="priority" id="low" />
+                <input type="radio" name="priority" id="medium" />
+                <input type="radio" name="priority" id="high" />
+                <label for="low">Low</label>
+                <label for="medium">Medium</label>
+                <label for="high">High</label>
+              </div>
             </div>
             <button>Add To do</button>
           </div>
