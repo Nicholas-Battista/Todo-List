@@ -29,7 +29,27 @@
       </div>
       <div class="content-newTodo">
         <div class="types"></div>
-        <div class="inputs"></div>
+        <div class="inputs">
+          <div class="top">
+            <input type="text" class="title" placeholder="TITLE" />
+            <input type="text" class="details" placeholder="DETAILS" />
+          </div>
+          <div class="bottom">
+            <div class="choices">
+              <label for="date"
+                >Due Date:
+                <input type="date" name="date" id="date" />
+              </label>
+              <label for="checkbox"
+                >Priority:
+                <input type="checkbox" id="low" />
+                <input type="checkbox" id="medium" />
+                <input type="checkbox" id="high" />
+              </label>
+            </div>
+            <button>Add To do</button>
+          </div>
+        </div>
       </div>
     </div>
     <script src="main.js"></script>
