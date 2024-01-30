@@ -64,6 +64,29 @@ div {
   height: 100%;
 }
 
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
 .container {
   filter: blur(10px);
 }
