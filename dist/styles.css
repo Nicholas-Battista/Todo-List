@@ -87,6 +87,10 @@ div {
   width: 70%;
 }
 
+/* .priority input {
+  display: none;
+} */
+
 .container {
   filter: blur(10px);
 }
