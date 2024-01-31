@@ -51,6 +51,17 @@ function determinePriority() {
   }
 }
 
+function displayNewTodo() {
+  const container = document.querySelector(".container");
+  container.classList.toggle("is-inactive");
+
+  const todoPopUp = document.querySelector(".add-todo");
+  todoPopUp.classList.toggle("add-inactive");
+}
+
+const addTodoBtn = document.querySelector(".addTodo");
+addTodoBtn.addEventListener("click", displayNewTodo);
+
 // const submitTodo = document.querySelector(".submit-todo");
 // submitTodo.addEventListener("click", createTODO);
 

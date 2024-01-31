@@ -53,6 +53,10 @@ div {
   flex-direction: column;
 }
 
+.add-inactive {
+  display: none;
+}
+
 .content-newTodo {
   display: flex;
   width: 100%;
@@ -91,6 +95,6 @@ div {
   display: none;
 } */
 
-/* .container {
+.is-inactive {
   filter: blur(10px);
-} */
+}
