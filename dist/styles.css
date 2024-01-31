@@ -2,6 +2,16 @@ html,
 body {
   margin: 0;
   height: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --red: #e3170a;
+  --blue: #1b5299;
+  --mint: #cef9f2;
+  --pale: #ffe2fe;
+  --azure: #edfdfa;
+  --sun: #e9afa3;
 }
 
 body {
@@ -10,12 +20,7 @@ body {
   justify-content: center;
 }
 
-div {
-  border: 1px solid black;
-}
-
 .container {
-  border: 1px solid black;
   width: 1200px;
   height: 70%;
   display: flex;
@@ -24,6 +29,7 @@ div {
 
 .header {
   width: 100%;
+  background-color: var(--blue);
 }
 
 .content {
@@ -35,6 +41,26 @@ div {
 .toolbar {
   width: 25%;
   height: 100%;
+  background-color: var(--sun);
+}
+
+.todoFields:hover::before {
+  content: "~ ~ ";
+  color: var(--blue);
+}
+
+.todoFields:hover {
+  cursor: pointer;
+  color: var(--blue);
+}
+
+.sectionActive::before {
+  content: "~ ~ ";
+  color: var(--blue);
+}
+
+.sectionActive {
+  color: var(--blue);
 }
 
 .todos {
@@ -44,6 +70,7 @@ div {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  background-color: var(--mint);
 }
 
 .todo-item {
@@ -62,6 +89,8 @@ div {
   height: 50%;
   display: flex;
   flex-direction: column;
+  background-color: var(--sun);
+  border: 1px solid var(--blue);
 }
 
 .add-inactive {
@@ -74,9 +103,14 @@ div {
   height: 100%;
 }
 
+.create-new {
+  background-color: var(--blue);
+}
+
 .types {
   width: 25%;
   height: 100%;
+  background-color: var(--sun);
 }
 
 .inputs {
@@ -84,11 +118,22 @@ div {
   flex-direction: column;
   justify-content: space-between;
   width: 75%;
+  background-color: var(--mint);
 }
 
 .top {
   display: flex;
   flex-direction: column;
+}
+
+.top input {
+  border: none;
+  background-color: var(--mint);
+  height: 30px;
+}
+
+.top input:focus {
+  outline: none;
 }
 
 .bottom {
@@ -100,6 +145,16 @@ div {
   display: flex;
   flex-direction: column;
   width: 70%;
+}
+
+.priority {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.priority input {
+  display: none;
 }
 
 /* .priority input {
