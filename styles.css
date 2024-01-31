@@ -40,6 +40,15 @@ div {
 .todos {
   width: 75%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  width: 90%;
 }
 
 .add-todo {
@@ -97,4 +106,9 @@ div {
 
 .is-inactive {
   filter: blur(10px);
+}
+
+svg {
+  height: 30px;
+  width: 30px;
 }
