@@ -28,7 +28,7 @@ function displayTODOS(array) {
 
     const right = document.createElement("div");
     right.classList.add("right");
-    right.appendChild(createDetailBtn());
+    right.appendChild(createDetailBtn(todo));
     right.appendChild(createP(todo.dueDate));
     // div.appendChild(createP(todo.priority));
     // div.appendChild(createP(todo.description));
@@ -73,10 +73,20 @@ function createDeleteSvg() {
   return svg;
 }
 
-function createDetailBtn() {
+function createDetailBtn(todo) {
   const detailBtn = document.createElement("button");
   detailBtn.classList.add("detail");
   detailBtn.textContent = "Details";
+
+  detailBtn.addEventListener("click", () => {
+    const div = document.createElement("div");
+    div.classList.add("details-container");
+
+    container.classList.toggle("is-inactive");
+
+    div.appendChild(createP(todo.title));
+    document.body.appendChild(div);
+  });
   return detailBtn;
 }
 
