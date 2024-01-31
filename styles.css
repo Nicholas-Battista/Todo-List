@@ -59,12 +59,17 @@ body {
   border-radius: 50%;
   border: none;
   margin-bottom: 20px;
-  background-color: #d64933;
+  background-color: #413c58;
 }
 
 .toolbar button:hover {
   transform: scale(1.05);
   box-shadow: var(--shadow);
+}
+
+.fields {
+  padding-left: 2rem;
+  font-size: 1.3rem;
 }
 
 .todoFields:hover {
@@ -74,7 +79,8 @@ body {
 }
 
 .sectionActive {
-  color: #d64933;
+  color: #413c58;
+  transform: translateX(10px);
 }
 
 .todos {
@@ -181,4 +187,5 @@ body {
 svg {
   height: 30px;
   width: 30px;
+  fill: #413c58;
 }
