@@ -3,15 +3,18 @@ body {
   margin: 0;
   height: 100%;
   font-family: "Open Sans", sans-serif;
+  background-color: var(--white);
 }
 
 :root {
-  --red: #e3170a;
-  --blue: #1b5299;
-  --mint: #cef9f2;
-  --pale: #ffe2fe;
-  --azure: #edfdfa;
-  --sun: #e9afa3;
+  --white: #fbfbf2;
+  --platinum: #e5e6e4;
+  --timber: #cfd2cd;
+  --silver: #a6a2a2;
+  --purple: #0c7c59;
+  --shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
 
 body {
@@ -25,11 +28,12 @@ body {
   height: 70%;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow);
 }
 
 .header {
   width: 100%;
-  background-color: var(--blue);
+  background-color: var(--purple);
 }
 
 .content {
@@ -41,26 +45,36 @@ body {
 .toolbar {
   width: 25%;
   height: 100%;
-  background-color: var(--sun);
+  background-color: var(--platinum);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.todoFields:hover::before {
-  content: "~ ~ ";
-  color: var(--blue);
+.toolbar button {
+  font-size: 3rem;
+  width: 100px;
+  height: 100px;
+  align-self: center;
+  border-radius: 50%;
+  border: none;
+  margin-bottom: 20px;
+  background-color: #d64933;
+}
+
+.toolbar button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow);
 }
 
 .todoFields:hover {
   cursor: pointer;
-  color: var(--blue);
-}
-
-.sectionActive::before {
-  content: "~ ~ ";
-  color: var(--blue);
+  color: #d64933;
+  transform: translateX(10px);
 }
 
 .sectionActive {
-  color: var(--blue);
+  color: #d64933;
 }
 
 .todos {
@@ -70,7 +84,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background-color: var(--mint);
+  background-color: var(--timber);
 }
 
 .todo-item {
@@ -89,8 +103,7 @@ body {
   height: 50%;
   display: flex;
   flex-direction: column;
-  background-color: var(--sun);
-  border: 1px solid var(--blue);
+  box-shadow: var(--shadow);
 }
 
 .add-inactive {
@@ -104,13 +117,13 @@ body {
 }
 
 .create-new {
-  background-color: var(--blue);
+  background-color: var(--purple);
 }
 
 .types {
   width: 25%;
   height: 100%;
-  background-color: var(--sun);
+  background-color: var(--silver);
 }
 
 .inputs {
@@ -118,7 +131,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 75%;
-  background-color: var(--mint);
+  background-color: var(--white);
 }
 
 .top {
