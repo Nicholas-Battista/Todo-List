@@ -26,6 +26,12 @@ function displayTODOS(array) {
     div.appendChild(createP(todo.date));
     div.appendChild(createP(todo.priority));
 
+    let trashCan = createDeleteSvg();
+    div.appendChild(trashCan);
+    trashCan.addEventListener("click", () => {
+      div.remove();
+      removeTodo(array, todo);
+    });
     TODOCONTAINER.appendChild(div);
   });
 }
@@ -40,6 +46,28 @@ function createP(string) {
   const pElement = document.createElement("p");
   pElement.textContent = string;
   return pElement;
+}
+
+function createDeleteSvg() {
+  let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+
+  let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute(
+    "d",
+    "M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
+  );
+  svg.appendChild(path);
+  return svg;
+}
+
+function removeTodo(array, todo) {
+  const index = array.findIndex((todoItem) => todoItem.title === todo.title);
+  if (index !== -1) {
+    array.splice(index, 1);
+  }
+  console.log(array);
 }
 
 function determinePriority() {
