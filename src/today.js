@@ -24,6 +24,4 @@ todayBtn.addEventListener("click", () => {
 const submitTodo = document.querySelector(".submit-todo");
 submitTodo.addEventListener("click", displayToday);
 
-// depending on which section is clicked - display the array and then when + is clicked its added to THAT array
-
 export default displayToday;
