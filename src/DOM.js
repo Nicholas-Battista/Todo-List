@@ -20,14 +20,23 @@ function displayTODOS(array) {
     const div = document.createElement("div");
     div.classList.add("todo-item");
 
-    div.appendChild(createCheckBox());
-    div.appendChild(createP(todo.title));
-    div.appendChild(createP(todo.description));
-    div.appendChild(createP(todo.dueDate));
-    div.appendChild(createP(todo.priority));
+    const left = document.createElement("div");
+    left.classList.add("left");
+    left.appendChild(createCheckBox());
+    left.appendChild(createP(todo.title));
+    div.appendChild(left);
+
+    const right = document.createElement("div");
+    right.classList.add("right");
+    right.appendChild(createDetailBtn());
+    right.appendChild(createP(todo.dueDate));
+    // div.appendChild(createP(todo.priority));
+    // div.appendChild(createP(todo.description));
 
     let trashCan = createDeleteSvg();
-    div.appendChild(trashCan);
+    right.appendChild(trashCan);
+
+    div.appendChild(right);
 
     trashCan.addEventListener("click", () => {
       div.remove();
@@ -62,6 +71,13 @@ function createDeleteSvg() {
   );
   svg.appendChild(path);
   return svg;
+}
+
+function createDetailBtn() {
+  const detailBtn = document.createElement("button");
+  detailBtn.classList.add("detail");
+  detailBtn.textContent = "Details";
+  return detailBtn;
 }
 
 function removeTodo(array, todo) {
