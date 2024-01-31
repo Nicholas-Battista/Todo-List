@@ -5,9 +5,9 @@ function createTODO() {
   const details = document.querySelector(".details").value;
   const date = document.getElementById("date").value;
   const priority = determinePriority();
-
   const todo = new todoItem(title, details, date, priority);
   console.log(todo);
+  return todo;
 }
 
 function displayTODOS(array, container) {
@@ -51,8 +51,8 @@ function determinePriority() {
   }
 }
 
-const submitTodo = document.querySelector(".submit-todo");
-submitTodo.addEventListener("click", createTODO);
+// const submitTodo = document.querySelector(".submit-todo");
+// submitTodo.addEventListener("click", createTODO);
 
 export default createTODO;
 export { displayTODOS };
