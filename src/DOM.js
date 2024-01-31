@@ -85,6 +85,16 @@ function createDetailBtn(todo) {
     container.classList.toggle("is-inactive");
 
     div.appendChild(createP(todo.title));
+
+    const exitDetailsBtn = document.createElement("button");
+    exitDetailsBtn.classList.add("exitDetailsBtn");
+    exitDetailsBtn.textContent = "X";
+    exitDetailsBtn.addEventListener("click", () => {
+      div.remove();
+      container.classList.toggle("is-inactive");
+    });
+    div.appendChild(exitDetailsBtn);
+
     document.body.appendChild(div);
   });
   return detailBtn;
