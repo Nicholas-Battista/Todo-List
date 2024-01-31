@@ -2,7 +2,6 @@ import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { sections } from ".";
 
-const todayBtn = document.querySelector(".today");
 let todayTodos = [];
 
 function displayToday() {
@@ -14,6 +13,7 @@ function displayToday() {
   }
 }
 
+const todayBtn = document.querySelector(".today");
 todayBtn.addEventListener("click", () => {
   sections.today = true;
   sections.home = false;

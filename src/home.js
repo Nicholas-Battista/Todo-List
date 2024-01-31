@@ -2,7 +2,6 @@ import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { sections } from ".";
 
-const homeBtn = document.querySelector(".home");
 let homeTodos = [];
 
 function displayHome() {
@@ -14,6 +13,7 @@ function displayHome() {
   }
 }
 
+const homeBtn = document.querySelector(".home");
 homeBtn.addEventListener("click", () => {
   sections.home = true;
   sections.today = false;

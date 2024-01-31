@@ -23,15 +23,17 @@ function displayTODOS(array) {
     div.appendChild(createCheckBox());
     div.appendChild(createP(todo.title));
     div.appendChild(createP(todo.description));
-    div.appendChild(createP(todo.date));
+    div.appendChild(createP(todo.dueDate));
     div.appendChild(createP(todo.priority));
 
     let trashCan = createDeleteSvg();
     div.appendChild(trashCan);
+
     trashCan.addEventListener("click", () => {
       div.remove();
       removeTodo(array, todo);
     });
+
     TODOCONTAINER.appendChild(div);
   });
 }

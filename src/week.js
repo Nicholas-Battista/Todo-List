@@ -2,7 +2,6 @@ import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { sections } from ".";
 
-const weekBtn = document.querySelector(".week");
 let weekTodos = [];
 
 function displayWeek() {
@@ -14,6 +13,7 @@ function displayWeek() {
   }
 }
 
+const weekBtn = document.querySelector(".week");
 weekBtn.addEventListener("click", () => {
   sections.week = true;
   sections.home = false;
