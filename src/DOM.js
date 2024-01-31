@@ -2,6 +2,7 @@ import todoItem from "./class";
 
 const container = document.querySelector(".container");
 const todoPopUp = document.querySelector(".add-todo");
+const TODOCONTAINER = document.querySelector(".todos");
 
 function createTODO() {
   const title = document.querySelector(".title").value;
@@ -13,8 +14,8 @@ function createTODO() {
   return todo;
 }
 
-function displayTODOS(array, container) {
-  container.innerHTML = "";
+function displayTODOS(array) {
+  TODOCONTAINER.innerHTML = "";
   array.forEach((todo) => {
     const div = document.createElement("div");
     div.classList.add("todo-item");
@@ -25,7 +26,7 @@ function displayTODOS(array, container) {
     div.appendChild(createP(todo.date));
     div.appendChild(createP(todo.priority));
 
-    container.appendChild(div);
+    TODOCONTAINER.appendChild(div);
   });
 }
 
@@ -67,9 +68,6 @@ function removeNewTodoPopUp() {
 
 const addTodoBtn = document.querySelector(".addTodo");
 addTodoBtn.addEventListener("click", displayNewTodo);
-
-// const submitTodo = document.querySelector(".submit-todo");
-// submitTodo.addEventListener("click", createTODO);
 
 export default createTODO;
 export { displayTODOS, removeNewTodoPopUp };
