@@ -42,7 +42,7 @@ input {
   color: var(--white);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 1.5rem;
   border-bottom: 2px solid var(--neon);
   letter-spacing: 2px;
@@ -339,6 +339,37 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
+  width: 40%;
   height: 50%;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--timber);
+}
+
+.details-container p {
+  border-top: 1px dashed var(--neon);
+  width: 98%;
+  padding: 20px 0 20px 2%;
+  box-shadow: var(--shadow);
+}
+
+.exitDetailsBtn {
+  align-self: flex-end;
+  background-color: var(--white);
+  border: none;
+  color: var(--neon);
+  font-size: 1.8rem;
+  padding: 10px 15px 0 0;
+}
+
+.exitDetailsBtn:hover {
+  color: var(--white);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--neon);
+  cursor: pointer;
+  transform: scale(1.05);
 }
