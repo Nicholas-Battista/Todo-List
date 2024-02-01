@@ -252,9 +252,10 @@ input {
 }
 
 .low:hover,
-.low:checked {
+#low:checked + .low {
   background-color: var(--purple);
   color: var(--platinum);
+  cursor: pointer;
 }
 
 .medium {
@@ -263,7 +264,7 @@ input {
 }
 
 .medium:hover,
-.medium:checked {
+#medium:checked + .medium {
   background-color: orange;
   color: var(--platinum);
 }
@@ -274,7 +275,7 @@ input {
 }
 
 .high:hover,
-.high:checked {
+#high:checked + .high {
   background-color: red;
   color: var(--platinum);
 }
