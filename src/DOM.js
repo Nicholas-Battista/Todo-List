@@ -31,7 +31,6 @@ function displayTODOS(array) {
     right.appendChild(createDetailBtn(todo));
     right.appendChild(createP(createDate(todo)));
     // div.appendChild(createP(todo.priority));
-    // div.appendChild(createP(todo.description));
 
     let trashCan = createDeleteSvg();
     right.appendChild(trashCan);
@@ -92,11 +91,6 @@ function createDetailBtn(todo) {
 
     container.classList.toggle("is-inactive");
 
-    div.appendChild(createP(todo.title));
-    div.appendChild(createP(todo.description));
-    div.appendChild(createP(createDate(todo)));
-    div.appendChild(createP(todo.priority));
-
     const exitDetailsBtn = document.createElement("button");
     exitDetailsBtn.classList.add("exitDetailsBtn");
     exitDetailsBtn.textContent = "X";
@@ -105,6 +99,11 @@ function createDetailBtn(todo) {
       container.classList.toggle("is-inactive");
     });
     div.appendChild(exitDetailsBtn);
+
+    div.appendChild(createP("TITLE:     " + todo.title));
+    div.appendChild(createP("DESCRIPTION:     " + todo.description));
+    div.appendChild(createP("DUE DATE:     " + createDate(todo)));
+    div.appendChild(createP("PRIORITY:     " + todo.priority));
 
     document.body.appendChild(div);
   });
