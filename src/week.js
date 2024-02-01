@@ -1,6 +1,7 @@
 import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { sections } from ".";
+import { setCounter } from "./DOM";
 
 let weekTodos = [];
 
@@ -9,6 +10,7 @@ function displayWeek() {
     weekTodos.push(createTODO());
     console.log(weekTodos);
     displayTODOS(weekTodos);
+    setCounter(weekTodos, sections);
     removeNewTodoPopUp();
   }
 }

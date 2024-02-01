@@ -1,6 +1,7 @@
 import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { sections } from ".";
+import { setCounter } from "./DOM";
 
 let todayTodos = [];
 
@@ -9,6 +10,7 @@ function displayToday() {
     todayTodos.push(createTODO());
     console.log(todayTodos);
     displayTODOS(todayTodos);
+    setCounter(todayTodos, sections);
     removeNewTodoPopUp();
   }
 }

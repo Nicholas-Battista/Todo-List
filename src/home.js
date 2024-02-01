@@ -1,6 +1,7 @@
 import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { sections } from ".";
+import { setCounter } from "./DOM";
 
 let homeTodos = [];
 
@@ -9,6 +10,7 @@ function displayHome() {
     homeTodos.push(createTODO());
     console.log(homeTodos);
     displayTODOS(homeTodos);
+    setCounter(homeTodos, sections);
     removeNewTodoPopUp();
   }
 }

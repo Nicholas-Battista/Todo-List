@@ -132,6 +132,21 @@ function determinePriority() {
   }
 }
 
+function setCounter(list, sections) {
+  const homeCounter = document.querySelector(".homeCount");
+  const todayCounter = document.querySelector(".todayCount");
+  const weekCounter = document.querySelector(".weekCount");
+  let counter = list.length;
+
+  if (sections.home) {
+    homeCounter.textContent = counter;
+  } else if (sections.week) {
+    weekCounter.textContent = counter;
+  } else if (sections.today) {
+    todayCounter.textContent = counter;
+  }
+}
+
 function displayNewTodo() {
   container.classList.toggle("is-inactive");
   todoPopUp.classList.toggle("add-inactive");
@@ -146,4 +161,4 @@ const addTodoBtn = document.querySelector(".addTodo");
 addTodoBtn.addEventListener("click", displayNewTodo);
 
 export default createTODO;
-export { displayTODOS, removeNewTodoPopUp };
+export { displayTODOS, removeNewTodoPopUp, setCounter };
