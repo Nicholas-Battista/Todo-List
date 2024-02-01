@@ -170,12 +170,15 @@ input {
 
 .create-new {
   background-color: var(--purple);
+  color: var(--white);
+  padding-left: 1rem;
 }
 
 .types {
   width: 25%;
   height: 100%;
-  background-color: var(--silver);
+  background-color: var(--platinum);
+  padding-left: 1rem;
 }
 
 .inputs {
@@ -183,13 +186,13 @@ input {
   flex-direction: column;
   justify-content: space-between;
   width: 75%;
-  background-color: var(--white);
+  background-color: var(--timber);
 }
 
 .top {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding-top: 1rem;
 }
 
@@ -199,6 +202,11 @@ input {
   height: 30px;
   font-size: 1.5rem;
   padding-left: 15px;
+  color: #413c58;
+}
+
+.top input::placeholder {
+  color: #413c58;
 }
 
 .top input:last-of-type {
@@ -228,6 +236,47 @@ input {
 
 .priority input {
   display: none;
+}
+
+.low,
+.medium,
+.high {
+  padding: 5px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.low {
+  border: 2px solid var(--purple);
+  color: var(--purple);
+}
+
+.low:hover,
+.low:checked {
+  background-color: var(--purple);
+  color: var(--platinum);
+}
+
+.medium {
+  border: 2px solid orange;
+  color: orange;
+}
+
+.medium:hover,
+.medium:checked {
+  background-color: orange;
+  color: var(--platinum);
+}
+
+.high {
+  border: 2px solid red;
+  color: red;
+}
+
+.high:hover,
+.high:checked {
+  background-color: red;
+  color: var(--platinum);
 }
 
 /* .priority input {
