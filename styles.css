@@ -7,11 +7,12 @@ body {
 }
 
 :root {
-  --white: #fbfbf2;
+  --white: #030027;
   --platinum: #e5e6e4;
-  --timber: #cfd2cd;
+  --timber: #feecf9;
   --silver: #a6a2a2;
-  --purple: #0c7c59;
+  --purple: #456990;
+  --neon: #40f99b;
   --shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075),
     0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075),
     0 16px 16px hsl(0deg 0% 0% / 0.075);
@@ -28,8 +29,8 @@ input {
 }
 
 .container {
-  width: 1200px;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow);
@@ -37,12 +38,14 @@ input {
 
 .header {
   width: 100%;
-  background-color: var(--purple);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--neon);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #413c58;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--neon);
+  letter-spacing: 2px;
 }
 
 .content {
@@ -54,9 +57,9 @@ input {
 .toolbar {
   width: 25%;
   height: 100%;
-  background-color: var(--platinum);
-  padding-top: 1rem;
-  border-right: 1px solid #413c58;
+  /* background-color: var(--platinum);
+  padding-top: 1rem; */
+  border-right: 2px solid var(--neon);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -70,7 +73,8 @@ input {
   border-radius: 50%;
   border: none;
   margin-bottom: 20px;
-  background-color: #413c58;
+  color: var(--white);
+  background-color: var(--neon);
 }
 
 .toolbar button:hover {
@@ -81,6 +85,11 @@ input {
 .fields {
   padding-left: 2rem;
   font-size: 1.3rem;
+  color: var(--neon);
+}
+
+.todoFields {
+  box-shadow: var(--shadow);
 }
 
 .todoFields:hover {
@@ -101,8 +110,8 @@ input {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding-top: 1rem;
-  background-color: var(--timber);
+  /* padding-top: 1rem; */
+  background-color: #05003d;
 }
 
 .todo-item {
@@ -110,11 +119,14 @@ input {
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  border: 2px solid var(--purple);
-  border-radius: 1rem;
   transition: 0.2s ease;
   padding: 0 10px;
-  color: #413c58;
+  color: var(--neon);
+  background-color: #070052;
+}
+
+.todo-item:first-of-type {
+  margin-top: 1rem;
 }
 
 .todo-item:hover {
@@ -132,17 +144,17 @@ input {
 
 .detail {
   padding: 8px 15px;
-  background-color: var(--timber);
-  border: 1px solid #413c58;
-  color: #413c58;
+  background-color: #070052;
+  border: 1px solid var(--neon);
+  color: var(--neon);
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   outline: none;
 }
 
 .detail:hover {
-  background-color: #413c58;
-  color: var(--timber);
+  background-color: var(--neon);
+  color: #070052;
   cursor: pointer;
 }
 
@@ -317,7 +329,7 @@ input {
 svg {
   height: 30px;
   width: 30px;
-  fill: #413c58;
+  fill: var(--neon);
 }
 
 .details-container {
