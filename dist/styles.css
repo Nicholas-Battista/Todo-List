@@ -84,25 +84,36 @@ input {
   box-shadow: var(--shadow);
 }
 
+.fieldContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+
+.fieldContainer span {
+  margin-right: 2rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #ff674d;
+  color: var(--white);
+}
+
 .fields {
   padding-left: 2rem;
   font-size: 1.3rem;
   color: var(--neon);
 }
 
-.todoFields {
-  box-shadow: var(--shadow);
-}
-
 .todoFields:hover {
   cursor: pointer;
-  color: #d64933;
+  color: #ff674d;
   transform: translateX(10px);
 }
 
 .sectionActive {
-  color: #413c58;
+  color: #ff674d;
   transform: translateX(10px);
+  border-bottom: 1px solid #ff674d;
 }
 
 .todos {
