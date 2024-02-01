@@ -39,13 +39,15 @@ input {
 .header {
   width: 100%;
   background-color: var(--white);
-  color: var(--neon);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   border-bottom: 2px solid var(--neon);
   letter-spacing: 2px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--neon);
 }
 
 .content {
