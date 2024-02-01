@@ -119,6 +119,22 @@ body {
   gap: 2rem;
 }
 
+.detail {
+  padding: 8px 15px;
+  background-color: var(--timber);
+  border: 1px solid #413c58;
+  color: #413c58;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  outline: none;
+}
+
+.detail:hover {
+  background-color: #413c58;
+  color: var(--timber);
+  cursor: pointer;
+}
+
 .add-todo {
   position: absolute;
   top: 50%;
