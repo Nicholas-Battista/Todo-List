@@ -355,15 +355,17 @@ svg {
   width: 98%;
   padding: 20px 0 20px 2%;
   box-shadow: var(--shadow);
+  margin: 0;
 }
 
 .exitDetailsBtn {
   align-self: flex-end;
-  background-color: var(--white);
+  background-color: transparent;
   border: none;
   color: var(--neon);
   font-size: 1.8rem;
   padding: 10px 15px 0 0;
+  position: absolute;
 }
 
 .exitDetailsBtn:hover {
