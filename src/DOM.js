@@ -93,6 +93,9 @@ function createDetailBtn(todo) {
     container.classList.toggle("is-inactive");
 
     div.appendChild(createP(todo.title));
+    div.appendChild(createP(todo.description));
+    div.appendChild(createP(createDate(todo)));
+    div.appendChild(createP(todo.priority));
 
     const exitDetailsBtn = document.createElement("button");
     exitDetailsBtn.classList.add("exitDetailsBtn");
