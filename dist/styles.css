@@ -220,18 +220,31 @@ input {
 .bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .choices {
   display: flex;
   flex-direction: column;
   width: 70%;
+  padding-left: 15px;
+}
+
+.choices:first-child {
+  color: #413c58;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .priority {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.priority h3 {
+  color: #413c58;
+  font-size: 1.25rem;
 }
 
 .priority input {
@@ -267,6 +280,7 @@ input {
 #medium:checked + .medium {
   background-color: orange;
   color: var(--platinum);
+  cursor: pointer;
 }
 
 .high {
@@ -278,6 +292,18 @@ input {
 #high:checked + .high {
   background-color: red;
   color: var(--platinum);
+  cursor: pointer;
+}
+
+.submit-todo {
+  background-color: var(--timber);
+  border: 1px solid #413c58;
+  color: #413c58;
+  padding: 10px 15px;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  border-radius: 50%;
 }
 
 /* .priority input {
