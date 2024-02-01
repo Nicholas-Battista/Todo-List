@@ -29,7 +29,7 @@ function displayTODOS(array) {
     const right = document.createElement("div");
     right.classList.add("right");
     right.appendChild(createDetailBtn(todo));
-    right.appendChild(createP(todo.dueDate));
+    right.appendChild(createP(createDate(todo)));
     // div.appendChild(createP(todo.priority));
     // div.appendChild(createP(todo.description));
 
@@ -57,6 +57,14 @@ function createP(string) {
   const pElement = document.createElement("p");
   pElement.textContent = string;
   return pElement;
+}
+
+function createDate(todo) {
+  const { parseISO, format } = require("date-fns");
+  const parsedDate = parseISO(todo.dueDate);
+
+  const formattedDate = format(parsedDate, "MMM dd");
+  return formattedDate;
 }
 
 function createDeleteSvg() {
