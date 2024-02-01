@@ -23,6 +23,10 @@ body {
   justify-content: center;
 }
 
+input {
+  font-family: "Open Sans", sans-serif;
+}
+
 .container {
   width: 1200px;
   height: 70%;
@@ -34,6 +38,11 @@ body {
 .header {
   width: 100%;
   background-color: var(--purple);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #413c58;
 }
 
 .content {
@@ -47,6 +56,7 @@ body {
   height: 100%;
   background-color: var(--platinum);
   padding-top: 1rem;
+  border-right: 1px solid #413c58;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -104,6 +114,7 @@ body {
   border-radius: 1rem;
   transition: 0.2s ease;
   padding: 0 10px;
+  color: #413c58;
 }
 
 .todo-item:hover {
@@ -178,12 +189,20 @@ body {
 .top {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  padding-top: 1rem;
 }
 
 .top input {
   border: none;
   background-color: var(--mint);
   height: 30px;
+  font-size: 1.5rem;
+  padding-left: 15px;
+}
+
+.top input:last-of-type {
+  font-size: 1.2rem;
 }
 
 .top input:focus {
