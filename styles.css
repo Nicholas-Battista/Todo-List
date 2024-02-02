@@ -453,3 +453,24 @@ svg:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
+
+.todoCheck {
+  accent-color: var(--neon);
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 1px solid var(--neon);
+}
+
+.todoCheck:checked {
+  background-color: var(--neon);
+  border: none;
+}
+
+.todoCheck:checked::before {
+  content: "\2713";
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  color: #feecf9;
+}
