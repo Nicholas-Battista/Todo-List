@@ -180,7 +180,7 @@ input {
   justify-content: space-between;
   width: 90%;
   transition: 0.2s ease;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   color: var(--neon);
   background-color: transparent;
 }
@@ -200,6 +200,12 @@ input {
   display: flex;
   align-items: center;
   gap: 2rem;
+  height: 100%;
+}
+
+.priorityBanner {
+  height: 100%;
+  width: 10px;
 }
 
 .detail {
@@ -381,11 +387,12 @@ input {
 
 .submit-todo {
   background-color: var(--timber);
-  border: 1px solid var(--neon);
+  border: 2px solid var(--neon);
   color: var(--neon);
   margin-right: 20px;
   padding: 0.5rem 1rem;
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .submit-todo:hover {
