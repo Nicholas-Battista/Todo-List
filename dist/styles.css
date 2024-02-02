@@ -241,8 +241,8 @@ input {
 }
 
 .create-new {
-  background-color: var(--purple);
-  color: var(--white);
+  background-color: var(--neon);
+  color: #feecf9;
   padding-left: 1rem;
 }
 
@@ -258,7 +258,7 @@ input {
   flex-direction: column;
   justify-content: space-between;
   width: 75%;
-  background-color: var(--timber);
+  background-color: #feecf9;
 }
 
 .top {
@@ -274,11 +274,11 @@ input {
   height: 30px;
   font-size: 1.5rem;
   padding-left: 15px;
-  color: #413c58;
+  color: black;
 }
 
 .top input::placeholder {
-  color: #413c58;
+  color: var(--silver);
 }
 
 .top input:last-of-type {
@@ -293,19 +293,31 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .choices {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 75%;
   padding-left: 15px;
 }
 
 .choices:first-child {
-  color: #413c58;
+  color: var(--neon);
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+#date {
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  padding: 5px;
+  border-radius: 1rem;
+}
+
+#date:focus {
+  outline: none;
 }
 
 .priority {
@@ -315,7 +327,7 @@ input {
 }
 
 .priority h3 {
-  color: #413c58;
+  color: var(--neon);
   font-size: 1.25rem;
 }
 
@@ -332,14 +344,14 @@ input {
 }
 
 .low {
-  border: 2px solid var(--purple);
-  color: var(--purple);
+  border: 2px solid #9cb692;
+  color: #9cb692;
 }
 
 .low:hover,
 #low:checked + .low {
-  background-color: var(--purple);
-  color: var(--platinum);
+  background-color: #9cb692;
+  color: #feecf9;
   cursor: pointer;
 }
 
@@ -369,13 +381,17 @@ input {
 
 .submit-todo {
   background-color: var(--timber);
-  border: 1px solid #413c58;
-  color: #413c58;
-  padding: 10px 15px;
-  height: 40px;
-  width: 40px;
+  border: 1px solid var(--neon);
+  color: var(--neon);
   margin-right: 20px;
-  border-radius: 50%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.submit-todo:hover {
+  background-color: var(--neon);
+  color: #feecf9;
+  cursor: pointer;
 }
 
 /* .priority input {
