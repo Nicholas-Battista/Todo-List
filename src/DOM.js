@@ -22,7 +22,7 @@ function createTODO() {
   return todo;
 }
 
-function displayTODOS(array) {
+function displayTODOS(array, arrayName) {
   TODOCONTAINER.innerHTML = "";
   if (array.length === 0) {
     const empty = createP("No current todo's");
@@ -53,7 +53,7 @@ function displayTODOS(array) {
 
       trashCan.addEventListener("click", () => {
         div.remove();
-        removeTodo(array, todo);
+        removeTodo(array, todo, arrayName);
       });
 
       TODOCONTAINER.appendChild(div);
@@ -141,12 +141,13 @@ function createDetailBtn(todo) {
   return detailBtn;
 }
 
-function removeTodo(array, todo) {
+function removeTodo(array, todo, arrayName) {
   const index = array.findIndex((todoItem) => todoItem.title === todo.title);
   if (index !== -1) {
     array.splice(index, 1);
+    localStorage.setItem(arrayName, JSON.stringify(array));
   }
-  setCounter(array);
+  setCounter(array, arrayName);
   if (array.length === 0) {
     const empty = createP("No current todo's");
     empty.classList.add("empty");
@@ -168,22 +169,22 @@ function determinePriority() {
   }
 }
 
-function setCounter(list) {
+function setCounter(list, arrayName) {
   let counter = list.length;
 
-  if (sections.home) {
+  if (arrayName === "homeTodos") {
     if (counter !== 0) {
       counters.homeCounter.textContent = counter;
     } else {
       counters.homeCounter.textContent = "";
     }
-  } else if (sections.week) {
+  } else if (arrayName === "weekTodos") {
     if (counter !== 0) {
       counters.weekCounter.textContent = counter;
     } else {
       counters.weekCounter.textContent = "";
     }
-  } else if (sections.today) {
+  } else if (arrayName === "todayTodos") {
     if (counter !== 0) {
       counters.todayCounter.textContent = counter;
     } else {

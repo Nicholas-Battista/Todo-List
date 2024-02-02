@@ -1,6 +1,6 @@
 import displayHome from "./home";
-import displayToday from "./today";
-import displayWeek from "./week";
+import displayTodayCounter from "./today";
+import displayWeekCount from "./week";
 
 let sections = {
   home: true,
@@ -30,5 +30,7 @@ const counters = {
 };
 
 displayHome();
+displayTodayCounter();
+displayWeekCount();
 
 export { sections, counters };

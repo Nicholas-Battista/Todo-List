@@ -8,16 +8,27 @@ import {
 import { sections } from ".";
 import { setCounter } from "./DOM";
 
-let todayTodos = [];
+function getTodayTodos() {
+  let todayTodos = JSON.parse(localStorage.getItem("todayTodos"));
+  if (todayTodos === null) {
+    todayTodos = [];
+  }
+  return todayTodos;
+}
 
 function displayToday() {
   if (sections.today) {
+    const todayTodos = getTodayTodos();
     todayTodos.push(createTODO());
-    console.log(todayTodos);
-    displayTODOS(todayTodos);
-    setCounter(todayTodos, sections);
+    displayTODOS(todayTodos, "todayTodos");
+    setCounter(todayTodos, "todayTodos");
     removeNewTodoPopUp();
+    localStorage.setItem("todayTodos", JSON.stringify(todayTodos));
   }
+}
+
+function displayTodayCounter() {
+  setCounter(getTodayTodos(), "todayTodos");
 }
 
 sectionBtns.todayBtn.addEventListener("click", () => {
@@ -25,10 +36,10 @@ sectionBtns.todayBtn.addEventListener("click", () => {
   sections.home = false;
   sections.week = false;
   setActiveText();
-  displayTODOS(todayTodos);
+  displayTODOS(getTodayTodos(), "todayTodos");
 });
 
 const submitTodo = document.querySelector(".submit-todo");
 submitTodo.addEventListener("click", displayToday);
 
-export default displayToday;
+export default displayTodayCounter;

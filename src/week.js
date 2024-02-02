@@ -8,16 +8,27 @@ import {
 import { sections } from ".";
 import { setCounter } from "./DOM";
 
-let weekTodos = [];
+function getWeekTodos() {
+  let weekTodos = JSON.parse(localStorage.getItem("weekTodos"));
+  if (weekTodos === null) {
+    weekTodos = [];
+  }
+  return weekTodos;
+}
 
 function displayWeek() {
   if (sections.week) {
+    const weekTodos = getWeekTodos();
     weekTodos.push(createTODO());
-    console.log(weekTodos);
-    displayTODOS(weekTodos);
-    setCounter(weekTodos, sections);
+    displayTODOS(weekTodos, "weekTodos");
+    setCounter(weekTodos, "weekTodos");
     removeNewTodoPopUp();
+    localStorage.setItem("weekTodos", JSON.stringify(weekTodos));
   }
+}
+
+function displayWeekCount() {
+  setCounter(getWeekTodos(), "weekTodos");
 }
 
 sectionBtns.weekBtn.addEventListener("click", () => {
@@ -25,10 +36,10 @@ sectionBtns.weekBtn.addEventListener("click", () => {
   sections.home = false;
   sections.today = false;
   setActiveText();
-  displayTODOS(weekTodos);
+  displayTODOS(getWeekTodos(), "weekTodos");
 });
 
 const submitTodo = document.querySelector(".submit-todo");
 submitTodo.addEventListener("click", displayWeek);
 
-export default displayWeek;
+export default displayWeekCount;

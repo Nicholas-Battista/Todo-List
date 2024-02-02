@@ -3,21 +3,29 @@ import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { setCounter, setActiveText, sectionBtns } from "./DOM";
 
-let homeTodos = [];
+function getHomeTodos() {
+  let homeTodos = JSON.parse(localStorage.getItem("homeTodos"));
+  if (homeTodos === null) {
+    homeTodos = [];
+  }
+  return homeTodos;
+}
 
 function displayHome() {
   if (sections.home) {
-    displayTODOS(homeTodos);
-    setCounter(homeTodos, sections);
+    displayTODOS(getHomeTodos(), "homeTodos");
+    setCounter(getHomeTodos(), "homeTodos");
   }
 }
 
 function addToHome() {
   if (sections.home) {
-    homeTodos.push(createTODO());
-    displayTODOS(homeTodos);
-    setCounter(homeTodos, sections);
+    const todayTodos = getHomeTodos();
+    todayTodos.push(createTODO());
+    displayTODOS(todayTodos, "homeTodos");
+    setCounter(todayTodos, "homeTodos");
     removeNewTodoPopUp();
+    localStorage.setItem("homeTodos", JSON.stringify(todayTodos));
   }
 }
 
@@ -26,7 +34,7 @@ sectionBtns.homeBtn.addEventListener("click", () => {
   sections.today = false;
   sections.week = false;
   setActiveText();
-  displayTODOS(homeTodos);
+  displayTODOS(getHomeTodos(), "homeTodos");
 });
 
 const submitTodo = document.querySelector(".submit-todo");
