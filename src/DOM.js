@@ -35,6 +35,7 @@ function displayTODOS(array) {
 
       const left = document.createElement("div");
       left.classList.add("left");
+      left.appendChild(createSpan(todo));
       left.appendChild(createCheckBox());
       left.appendChild(createP(todo.title));
       div.appendChild(left);
@@ -71,6 +72,20 @@ function createP(string) {
   const pElement = document.createElement("p");
   pElement.textContent = string;
   return pElement;
+}
+
+function createSpan(todo) {
+  const priorityBanner = document.createElement("span");
+  priorityBanner.classList.add("priorityBanner");
+
+  if (todo.priority === "low") {
+    priorityBanner.style.backgroundColor = "#9cb692";
+  } else if (todo.priority === "medium") {
+    priorityBanner.style.backgroundColor = "orange";
+  } else {
+    priorityBanner.style.backgroundColor = "red";
+  }
+  return priorityBanner;
 }
 
 function createDate(todo) {
