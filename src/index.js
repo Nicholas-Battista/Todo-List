@@ -29,4 +29,6 @@ const counters = {
   weekCounter: document.querySelector(".weekCount"),
 };
 
+displayHome();
+
 export { sections, counters };

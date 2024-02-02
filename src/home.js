@@ -7,8 +7,14 @@ let homeTodos = [];
 
 function displayHome() {
   if (sections.home) {
+    displayTODOS(homeTodos);
+    setCounter(homeTodos, sections);
+  }
+}
+
+function addToHome() {
+  if (sections.home) {
     homeTodos.push(createTODO());
-    console.log(homeTodos);
     displayTODOS(homeTodos);
     setCounter(homeTodos, sections);
     removeNewTodoPopUp();
@@ -24,6 +30,6 @@ sectionBtns.homeBtn.addEventListener("click", () => {
 });
 
 const submitTodo = document.querySelector(".submit-todo");
-submitTodo.addEventListener("click", displayHome);
+submitTodo.addEventListener("click", addToHome);
 
-export { displayHome };
+export default displayHome;

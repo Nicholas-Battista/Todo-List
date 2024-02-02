@@ -24,34 +24,38 @@ function createTODO() {
 
 function displayTODOS(array) {
   TODOCONTAINER.innerHTML = "";
-  array.forEach((todo) => {
-    const div = document.createElement("div");
-    div.classList.add("todo-item");
+  if (array.length === 0) {
+    TODOCONTAINER.appendChild(createP("No current To do's"));
+  } else {
+    array.forEach((todo) => {
+      const div = document.createElement("div");
+      div.classList.add("todo-item");
 
-    const left = document.createElement("div");
-    left.classList.add("left");
-    left.appendChild(createCheckBox());
-    left.appendChild(createP(todo.title));
-    div.appendChild(left);
+      const left = document.createElement("div");
+      left.classList.add("left");
+      left.appendChild(createCheckBox());
+      left.appendChild(createP(todo.title));
+      div.appendChild(left);
 
-    const right = document.createElement("div");
-    right.classList.add("right");
-    right.appendChild(createDetailBtn(todo));
-    right.appendChild(createP(createDate(todo)));
-    // div.appendChild(createP(todo.priority));
+      const right = document.createElement("div");
+      right.classList.add("right");
+      right.appendChild(createDetailBtn(todo));
+      right.appendChild(createP(createDate(todo)));
+      // div.appendChild(createP(todo.priority));
 
-    let trashCan = createDeleteSvg();
-    right.appendChild(trashCan);
+      let trashCan = createDeleteSvg();
+      right.appendChild(trashCan);
 
-    div.appendChild(right);
+      div.appendChild(right);
 
-    trashCan.addEventListener("click", () => {
-      div.remove();
-      removeTodo(array, todo);
+      trashCan.addEventListener("click", () => {
+        div.remove();
+        removeTodo(array, todo);
+      });
+
+      TODOCONTAINER.appendChild(div);
     });
-
-    TODOCONTAINER.appendChild(div);
-  });
+  }
 }
 
 function createCheckBox() {
