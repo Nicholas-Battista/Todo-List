@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   height: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: var(--white);
 }
 
@@ -38,14 +38,23 @@ input {
 
 .header {
   width: 100%;
+  height: 20%;
   background-color: #a77655;
   color: #fdf2d8;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 1.5rem;
   border-bottom: 2px solid var(--neon);
   letter-spacing: 2px;
+  border-radius: 2rem 2rem 0 0;
+  font-family: "Lato", sans-serif;
+}
+
+.header h1 {
+  width: 20%;
+  font-size: 2.5rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .content {
@@ -87,39 +96,52 @@ input {
   align-items: center;
   justify-content: space-between;
   /* box-shadow: var(--shadow); */
-  height: 13%;
+  height: 3rem;
   color: var(--neon);
+  border-radius: 0 0 2rem 2rem;
 }
 
 .sectionActive.fieldContainer:first-of-type {
   background-color: #3b4a34;
   box-shadow: var(--shadow);
+  border-radius: 0 0 2rem 2rem;
 }
 
 .fieldContainer:first-of-type:hover {
   background-color: #3b4a34;
   color: #feecf9;
   box-shadow: var(--shadow);
+  border-radius: 0 0 2rem 2rem;
 }
 
 .sectionActive.fieldContainer:nth-of-type(2) {
   background-color: #66afe4;
   box-shadow: var(--shadow);
+  border-radius: 0 0 2rem 2rem;
 }
 
 .fieldContainer:nth-of-type(2):hover {
   background-color: #66afe4;
   color: #feecf9;
   box-shadow: var(--shadow);
+  border-radius: 0 0 2rem 2rem;
 }
 
-.sectionActive.fieldContainer:last-of-type {
+.sectionActive.fieldContainer:nth-of-type(3) {
   background-color: #9cb692;
   box-shadow: var(--shadow);
+  border-radius: 0 0 2rem 2rem;
 }
 
-.fieldContainer:last-of-type:hover {
+.fieldContainer:nth-of-type(3):hover {
   background-color: #9cb692;
+  color: #feecf9;
+  box-shadow: var(--shadow);
+  border-radius: 0 0 2rem 2rem;
+}
+
+.fieldContainer:nth-of-type(4) {
+  background-color: #707070;
   color: #feecf9;
   box-shadow: var(--shadow);
 }
@@ -171,6 +193,7 @@ input {
   padding: 1rem 2rem;
   user-select: none;
   font-weight: bold;
+  font-size: 1rem;
   margin: 10% 0 0 0;
 }
 
@@ -281,10 +304,14 @@ input {
   font-size: 1.5rem;
   padding-left: 15px;
   color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
 }
 
 .top input::placeholder {
   color: var(--silver);
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
 }
 
 .top input:last-of-type {
@@ -345,8 +372,8 @@ input {
 .medium,
 .high {
   padding: 5px 15px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: bolder;
 }
 
 .low {
@@ -393,6 +420,7 @@ input {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: bold;
+  font-family: "Lato", sans-serif;
 }
 
 .submit-todo:hover {
@@ -480,4 +508,27 @@ svg:hover {
   text-align: center;
   font-size: 15px;
   color: #feecf9;
+}
+
+.projects {
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects button {
+  background-color: #707070;
+  font-size: 1.5rem;
+  /* border: 1px solid var(--white); */
+  margin: 0 1rem 0 0;
+  height: 40px;
+  width: 40px;
+}
+
+.projects button:hover {
+  background-color: var(--white);
+  color: #707070;
+  box-shadow: none;
+  transform: none;
 }
