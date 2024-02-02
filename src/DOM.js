@@ -25,7 +25,9 @@ function createTODO() {
 function displayTODOS(array) {
   TODOCONTAINER.innerHTML = "";
   if (array.length === 0) {
-    TODOCONTAINER.appendChild(createP("No current To do's"));
+    const empty = createP("No current todo's");
+    empty.classList.add("empty");
+    TODOCONTAINER.appendChild(empty);
   } else {
     array.forEach((todo) => {
       const div = document.createElement("div");
@@ -129,6 +131,11 @@ function removeTodo(array, todo) {
     array.splice(index, 1);
   }
   setCounter(array);
+  if (array.length === 0) {
+    const empty = createP("No current todo's");
+    empty.classList.add("empty");
+    TODOCONTAINER.appendChild(empty);
+  }
 }
 
 function determinePriority() {
