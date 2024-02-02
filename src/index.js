@@ -23,4 +23,10 @@ let sections = {
   },
 };
 
-export { sections };
+const counters = {
+  homeCounter: document.querySelector(".homeCount"),
+  todayCounter: document.querySelector(".todayCount"),
+  weekCounter: document.querySelector(".weekCount"),
+};
+
+export { sections, counters };

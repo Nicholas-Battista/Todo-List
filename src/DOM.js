@@ -1,4 +1,6 @@
 import todoItem from "./class";
+import { counters } from ".";
+import { sections } from ".";
 
 const container = document.querySelector(".container");
 const todoPopUp = document.querySelector(".add-todo");
@@ -68,6 +70,7 @@ function createDate(todo) {
 
 function createDeleteSvg() {
   let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.classList.add("delete-btn");
   svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
   svg.setAttribute("viewBox", "0 0 24 24");
 
@@ -115,7 +118,7 @@ function removeTodo(array, todo) {
   if (index !== -1) {
     array.splice(index, 1);
   }
-  console.log(array);
+  setCounter(array);
 }
 
 function determinePriority() {
@@ -132,18 +135,27 @@ function determinePriority() {
   }
 }
 
-function setCounter(list, sections) {
-  const homeCounter = document.querySelector(".homeCount");
-  const todayCounter = document.querySelector(".todayCount");
-  const weekCounter = document.querySelector(".weekCount");
+function setCounter(list) {
   let counter = list.length;
 
   if (sections.home) {
-    homeCounter.textContent = counter;
+    if (counter !== 0) {
+      counters.homeCounter.textContent = counter;
+    } else {
+      counters.homeCounter.textContent = "";
+    }
   } else if (sections.week) {
-    weekCounter.textContent = counter;
+    if (counter !== 0) {
+      counters.weekCounter.textContent = counter;
+    } else {
+      counters.weekCounter.textContent = "";
+    }
   } else if (sections.today) {
-    todayCounter.textContent = counter;
+    if (counter !== 0) {
+      counters.todayCounter.textContent = counter;
+    } else {
+      counters.todayCounter.textContent = "";
+    }
   }
 }
 

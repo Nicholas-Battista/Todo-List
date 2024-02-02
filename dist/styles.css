@@ -47,7 +47,7 @@ input {
   border-bottom: 2px solid var(--neon);
   letter-spacing: 2px;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--neon);
+  -webkit-text-stroke-color: #ff674d;
 }
 
 .content {
@@ -99,7 +99,7 @@ input {
 }
 
 .fields {
-  padding-left: 2rem;
+  padding-left: 10%;
   font-size: 1.3rem;
   color: var(--neon);
 }
