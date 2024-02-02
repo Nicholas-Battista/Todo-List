@@ -63,6 +63,7 @@ function displayTODOS(array) {
 function createCheckBox() {
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
+  checkBox.classList.add("todoCheck");
   return checkBox;
 }
 
