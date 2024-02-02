@@ -1,5 +1,10 @@
 import createTODO from "./DOM";
-import { displayTODOS, removeNewTodoPopUp } from "./DOM";
+import {
+  displayTODOS,
+  removeNewTodoPopUp,
+  sectionBtns,
+  setActiveText,
+} from "./DOM";
 import { sections } from ".";
 import { setCounter } from "./DOM";
 
@@ -15,11 +20,11 @@ function displayWeek() {
   }
 }
 
-const weekBtn = document.querySelector(".week");
-weekBtn.addEventListener("click", () => {
+sectionBtns.weekBtn.addEventListener("click", () => {
   sections.week = true;
   sections.home = false;
   sections.today = false;
+  setActiveText();
   displayTODOS(weekTodos);
 });
 

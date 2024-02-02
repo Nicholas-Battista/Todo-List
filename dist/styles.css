@@ -113,7 +113,6 @@ input {
 .sectionActive {
   color: #ff674d;
   transform: translateX(10px);
-  border-bottom: 1px solid #ff674d;
 }
 
 .todos {

@@ -2,6 +2,12 @@ import todoItem from "./class";
 import { counters } from ".";
 import { sections } from ".";
 
+const sectionBtns = {
+  homeBtn: document.querySelector(".home"),
+  todayBtn: document.querySelector(".today"),
+  weekBtn: document.querySelector(".week"),
+};
+
 const container = document.querySelector(".container");
 const todoPopUp = document.querySelector(".add-todo");
 const TODOCONTAINER = document.querySelector(".todos");
@@ -169,8 +175,30 @@ function removeNewTodoPopUp() {
   todoPopUp.classList.toggle("add-inactive");
 }
 
+function setActiveText() {
+  if (sections.home) {
+    sectionBtns.homeBtn.classList.add("sectionActive");
+    sectionBtns.todayBtn.classList.remove("sectionActive");
+    sectionBtns.weekBtn.classList.remove("sectionActive");
+  } else if (sections.today) {
+    sectionBtns.todayBtn.classList.add("sectionActive");
+    sectionBtns.homeBtn.classList.remove("sectionActive");
+    sectionBtns.weekBtn.classList.remove("sectionActive");
+  } else if (sections.week) {
+    sectionBtns.weekBtn.classList.add("sectionActive");
+    sectionBtns.todayBtn.classList.remove("sectionActive");
+    sectionBtns.homeBtn.classList.remove("sectionActive");
+  }
+}
+
 const addTodoBtn = document.querySelector(".addTodo");
 addTodoBtn.addEventListener("click", displayNewTodo);
 
 export default createTODO;
-export { displayTODOS, removeNewTodoPopUp, setCounter };
+export {
+  displayTODOS,
+  removeNewTodoPopUp,
+  setCounter,
+  setActiveText,
+  sectionBtns,
+};
