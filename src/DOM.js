@@ -77,8 +77,11 @@ function createCheckBox(todo, arrayName, array) {
 
   checkBox.addEventListener("change", () => {
     todo.completed = checkBox.checked;
+    array.sort((a, b) =>
+      a.completed === b.completed ? 0 : a.completed ? 1 : -1
+    );
     localStorage.setItem(arrayName, JSON.stringify(array));
-    console.log(todo);
+    displayTODOS(array, arrayName);
 
     titleP.style.textDecoration = checkBox.checked ? "line-through" : "none";
   });
