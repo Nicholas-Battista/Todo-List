@@ -4,6 +4,7 @@ import {
   removeNewTodoPopUp,
   sectionBtns,
   setActiveText,
+  validateInput,
 } from "./DOM";
 import { sections } from ".";
 import { setCounter } from "./DOM";
@@ -18,6 +19,10 @@ function getWeekTodos() {
 
 function displayWeek() {
   if (sections.week) {
+    if (!validateInput()) {
+      alert("Please fill in all fields before adding a todo.");
+      return;
+    }
     const weekTodos = getWeekTodos();
     weekTodos.push(createTODO());
     displayTODOS(weekTodos, "weekTodos");

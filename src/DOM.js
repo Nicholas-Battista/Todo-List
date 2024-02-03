@@ -247,6 +247,22 @@ function setActiveText() {
   }
 }
 
+function validateInput() {
+  const title = document.querySelector(".title").value;
+  const details = document.querySelector(".details").value;
+  const date = document.getElementById("date").value;
+  const priority = determinePriority();
+  if (
+    title.trim() === "" ||
+    details.trim() === "" ||
+    date.trim() === "" ||
+    priority === undefined
+  ) {
+    return false;
+  }
+  return true;
+}
+
 document
   .querySelector(".closeNewTodo")
   .addEventListener("click", removeNewTodoPopUp);
@@ -261,4 +277,5 @@ export {
   setCounter,
   setActiveText,
   sectionBtns,
+  validateInput,
 };

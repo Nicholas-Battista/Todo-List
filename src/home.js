@@ -1,7 +1,7 @@
 import { sections } from ".";
 import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
-import { setCounter, setActiveText, sectionBtns } from "./DOM";
+import { setCounter, setActiveText, sectionBtns, validateInput } from "./DOM";
 
 function getHomeTodos() {
   let homeTodos = JSON.parse(localStorage.getItem("homeTodos"));
@@ -20,6 +20,10 @@ function displayHome() {
 
 function addToHome() {
   if (sections.home) {
+    if (!validateInput()) {
+      alert("Please fill in all fields before adding a todo.");
+      return;
+    }
     const todayTodos = getHomeTodos();
     todayTodos.push(createTODO());
     displayTODOS(todayTodos, "homeTodos");

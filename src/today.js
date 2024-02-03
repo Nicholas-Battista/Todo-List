@@ -4,6 +4,7 @@ import {
   removeNewTodoPopUp,
   sectionBtns,
   setActiveText,
+  validateInput,
 } from "./DOM";
 import { sections } from ".";
 import { setCounter } from "./DOM";
@@ -18,6 +19,10 @@ function getTodayTodos() {
 
 function displayToday() {
   if (sections.today) {
+    if (!validateInput()) {
+      alert("Please fill in all fields before adding a todo.");
+      return;
+    }
     const todayTodos = getTodayTodos();
     todayTodos.push(createTODO());
     displayTODOS(todayTodos, "todayTodos");
