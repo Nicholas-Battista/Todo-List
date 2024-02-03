@@ -36,8 +36,7 @@ function displayTODOS(array, arrayName) {
       const left = document.createElement("div");
       left.classList.add("left");
       left.appendChild(createSpan(todo));
-      left.appendChild(createCheckBox());
-      left.appendChild(createP(todo.title));
+      left.appendChild(createCheckBox(todo, arrayName, array));
       div.appendChild(left);
 
       const right = document.createElement("div");
@@ -60,15 +59,31 @@ function displayTODOS(array, arrayName) {
   }
 }
 
-function createCheckBox() {
+function createCheckBox(todo, arrayName, array) {
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
   checkBox.classList.add("todoCheck");
+
+  const titleP = createP(todo.title);
+  const container = document.createElement("div");
+  container.classList.add("checkContainer");
+  container.appendChild(checkBox);
+  container.appendChild(titleP);
+
+  if (todo.completed) {
+    checkBox.checked = true;
+    titleP.style.textDecoration = "line-through";
+  }
+
   checkBox.addEventListener("change", () => {
-    if (this.checked) {
-    }
+    todo.completed = checkBox.checked;
+    localStorage.setItem(arrayName, JSON.stringify(array));
+    console.log(todo);
+
+    titleP.style.textDecoration = checkBox.checked ? "line-through" : "none";
   });
-  return checkBox;
+
+  return container;
 }
 
 function createP(string) {
