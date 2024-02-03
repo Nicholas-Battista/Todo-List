@@ -44,7 +44,6 @@ function displayTODOS(array, arrayName) {
       right.classList.add("right");
       right.appendChild(createDetailBtn(todo));
       right.appendChild(createP(createDate(todo)));
-      // div.appendChild(createP(todo.priority));
 
       let trashCan = createDeleteSvg();
       right.appendChild(trashCan);
@@ -65,6 +64,10 @@ function createCheckBox() {
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
   checkBox.classList.add("todoCheck");
+  checkBox.addEventListener("change", () => {
+    if (this.checked) {
+    }
+  });
   return checkBox;
 }
 
@@ -196,11 +199,21 @@ function setCounter(list, arrayName) {
 function displayNewTodo() {
   container.classList.toggle("is-inactive");
   todoPopUp.classList.toggle("add-inactive");
+  addTodoBtn.removeEventListener("click", displayNewTodo);
 }
 
 function removeNewTodoPopUp() {
   container.classList.toggle("is-inactive");
   todoPopUp.classList.toggle("add-inactive");
+  addTodoBtn.addEventListener("click", displayNewTodo);
+
+  document.querySelector(".title").value = "";
+  document.querySelector(".details").value = "";
+  document.getElementById("date").value = "";
+
+  document.getElementById("low").checked = false;
+  document.getElementById("medium").checked = false;
+  document.getElementById("high").checked = false;
 }
 
 function setActiveText() {
@@ -218,6 +231,10 @@ function setActiveText() {
     sectionBtns.homeBtn.classList.remove("sectionActive");
   }
 }
+
+document
+  .querySelector(".closeNewTodo")
+  .addEventListener("click", removeNewTodoPopUp);
 
 const addTodoBtn = document.querySelector(".addTodo");
 addTodoBtn.addEventListener("click", displayNewTodo);
