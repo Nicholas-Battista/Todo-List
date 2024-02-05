@@ -12,6 +12,13 @@ class todoItem {
   }
 }
 
+class Project {
+  constructor(name) {
+    this.name = name;
+    this.todoList = [];
+  }
+}
+
 function generateTodo(title, description, dueDate, priority) {
   const todo = new todoItem(title, description, dueDate, priority);
   console.log(todo);
@@ -19,4 +26,4 @@ function generateTodo(title, description, dueDate, priority) {
 }
 
 export default todoItem;
-export { generateTodo };
+export { generateTodo, Project };

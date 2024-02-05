@@ -3,6 +3,11 @@
 // display the project under projects
 // use same methods as home / today so when project is active we add todos to it
 // store project arrays in local storage, on page load show projects and total todos
+
+import { Project } from "./class";
+
+let projectsArray = [];
+
 const newProjectBtn = document.querySelector(".addProject");
 newProjectBtn.addEventListener("click", displayNewProjectPopUp);
 
@@ -18,8 +23,6 @@ function displayNewProjectPopUp() {
 
   document.body.appendChild(container);
   newProjectBtn.removeEventListener("click", displayNewProjectPopUp);
-
-  // chunk this into functions
 }
 
 function createHeader(container) {
@@ -62,6 +65,7 @@ function createExitBtn(container) {
 
 function createInput() {
   const projectName = document.createElement("input");
+  projectName.classList.add("projectName");
   projectName.type = "text";
   projectName.placeholder = "PROJECT TITLE: Work event, Person, etc...";
   return projectName;
@@ -71,7 +75,16 @@ function createSubmit() {
   const submitProjectBtn = document.createElement("button");
   submitProjectBtn.classList.add("submitProject");
   submitProjectBtn.textContent = "Add Project";
+  submitProjectBtn.addEventListener("click", generateNewProject);
   return submitProjectBtn;
+}
+
+function generateNewProject() {
+  const project = new Project(document.querySelector(".projectName").value);
+  projectsArray.push(project);
+  console.log(projectsArray);
+  mainContainer.classList.toggle("is-inactive");
+  document.querySelector(".newProjectPopUp").remove();
 }
 
 export default displayNewProjectPopUp;
