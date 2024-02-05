@@ -83,8 +83,20 @@ function generateNewProject() {
   const project = new Project(document.querySelector(".projectName").value);
   projectsArray.push(project);
   console.log(projectsArray);
+  displayToolbarProjects();
   mainContainer.classList.toggle("is-inactive");
   document.querySelector(".newProjectPopUp").remove();
+  newProjectBtn.addEventListener("click", displayNewProjectPopUp);
+}
+
+function displayToolbarProjects() {
+  const projectContainer = document.querySelector(".project-container");
+  projectContainer.innerHTML = "";
+  projectsArray.forEach((project) => {
+    const projectTitle = document.createElement("h3");
+    projectTitle.textContent = project.name;
+    projectContainer.appendChild(projectTitle);
+  });
 }
 
 export default displayNewProjectPopUp;
