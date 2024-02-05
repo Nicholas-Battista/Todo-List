@@ -5,6 +5,14 @@
 // store project arrays in local storage, on page load show projects and total todos
 
 import { Project } from "./class";
+import {
+  displayTODOS,
+  validateInput,
+  setCounter,
+  removeNewTodoPopUp,
+} from "./DOM";
+import createTODO from "./DOM";
+import { sections } from ".";
 
 let projectsArray = [];
 
@@ -93,10 +101,45 @@ function displayToolbarProjects() {
   const projectContainer = document.querySelector(".project-container");
   projectContainer.innerHTML = "";
   projectsArray.forEach((project) => {
+    const fieldContainer = document.createElement("div");
+    fieldContainer.classList.add("fieldContainer");
+    fieldContainer.classList.add("project");
+
     const projectTitle = document.createElement("h3");
     projectTitle.textContent = project.name;
-    projectContainer.appendChild(projectTitle);
+    fieldContainer.appendChild(projectTitle);
+    fieldContainer.addEventListener("click", () => {
+      displayTODOS(project.todoList, project.name);
+      projectsArray.forEach((item) => {
+        item.isActive = false;
+      });
+      project.isActive = true;
+      sections.home = false;
+      sections.today = false;
+      sections.week = false;
+    });
+    projectContainer.appendChild(fieldContainer);
   });
 }
+
+function addtoProject() {
+  projectsArray.forEach((project) => {
+    if (project.isActive) {
+      if (!validateInput()) {
+        alert("Please fill in all fields before adding a todo.");
+        return;
+      }
+      project.todoList.push(createTODO());
+      displayTODOS(project.todoList, project.name);
+      setCounter(project.todoList, project.name);
+      removeNewTodoPopUp();
+    }
+  });
+}
+
+const submitTodo = document.querySelector(".submit-todo");
+submitTodo.addEventListener("click", addtoProject);
+
+// have to set home today and week to false, and when clicking on one of them set all projects to false
 
 export default displayNewProjectPopUp;
