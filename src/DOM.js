@@ -22,7 +22,7 @@ function createTODO() {
   return todo;
 }
 
-function displayTODOS(array, arrayName) {
+function displayTODOS(array, arrayName, project) {
   TODOCONTAINER.innerHTML = "";
   if (array.length === 0) {
     const empty = createP("No current todo's");
@@ -51,7 +51,7 @@ function displayTODOS(array, arrayName) {
 
       trashCan.addEventListener("click", () => {
         div.remove();
-        removeTodo(array, todo, arrayName);
+        removeTodo(array, todo, arrayName, project);
       });
 
       TODOCONTAINER.appendChild(div);
@@ -162,13 +162,13 @@ function createDetailBtn(todo) {
   return detailBtn;
 }
 
-function removeTodo(array, todo, arrayName) {
+function removeTodo(array, todo, arrayName, project) {
   const index = array.findIndex((todoItem) => todoItem.title === todo.title);
   if (index !== -1) {
     array.splice(index, 1);
     localStorage.setItem(arrayName, JSON.stringify(array));
   }
-  setCounter(array, arrayName);
+  setCounter(array, arrayName, project);
   if (array.length === 0) {
     const empty = createP("No current todo's");
     empty.classList.add("empty");
@@ -190,7 +190,7 @@ function determinePriority() {
   }
 }
 
-function setCounter(list, arrayName) {
+function setCounter(list, arrayName, project) {
   let counter = list.length;
 
   if (arrayName === "homeTodos") {
@@ -210,6 +210,12 @@ function setCounter(list, arrayName) {
       counters.todayCounter.textContent = counter;
     } else {
       counters.todayCounter.textContent = "";
+    }
+  } else if (arrayName === project.name) {
+    if (counter !== 0) {
+      project.span.textContent = counter;
+    } else {
+      project.span.textContent = "";
     }
   }
 }

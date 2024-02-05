@@ -92,6 +92,9 @@ function generateNewProject() {
   projectsArray.push(project);
   console.log(projectsArray);
   displayToolbarProjects();
+  projectsArray.forEach((project) => {
+    setCounter(project.todoList, project.name, project);
+  });
   mainContainer.classList.toggle("is-inactive");
   document.querySelector(".newProjectPopUp").remove();
   newProjectBtn.addEventListener("click", displayNewProjectPopUp);
@@ -100,6 +103,7 @@ function generateNewProject() {
 function displayToolbarProjects() {
   const projectContainer = document.querySelector(".project-container");
   projectContainer.innerHTML = "";
+
   projectsArray.forEach((project) => {
     const fieldContainer = document.createElement("div");
     fieldContainer.classList.add("fieldContainer");
@@ -109,13 +113,18 @@ function displayToolbarProjects() {
     projectTitle.textContent = project.name;
     fieldContainer.appendChild(projectTitle);
     fieldContainer.addEventListener("click", () => {
-      displayTODOS(project.todoList, project.name);
+      displayTODOS(project.todoList, project.name, project);
       setProjectFalse();
       project.isActive = true;
       sections.home = false;
       sections.today = false;
       sections.week = false;
     });
+
+    const span = document.createElement("span");
+    project.span = span;
+    fieldContainer.appendChild(span);
+
     projectContainer.appendChild(fieldContainer);
   });
 }
@@ -128,8 +137,8 @@ function addtoProject() {
         return;
       }
       project.todoList.push(createTODO());
-      displayTODOS(project.todoList, project.name);
-      setCounter(project.todoList, project.name);
+      displayTODOS(project.todoList, project.name, project);
+      setCounter(project.todoList, project.name, project);
       removeNewTodoPopUp();
     }
   });
@@ -144,7 +153,7 @@ function setProjectFalse() {
 const submitTodo = document.querySelector(".submit-todo");
 submitTodo.addEventListener("click", addtoProject);
 
-// active css class to show its been clicked, set counter updates, local storage
+// active css class to show its been clicked, local storage
 
 export default displayNewProjectPopUp;
 export { setProjectFalse };

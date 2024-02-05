@@ -17,6 +17,7 @@ class Project {
     this.name = name;
     this.todoList = [];
     this.isActive = false;
+    this.span = "";
   }
 }
 
