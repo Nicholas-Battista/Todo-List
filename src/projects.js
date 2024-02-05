@@ -110,9 +110,7 @@ function displayToolbarProjects() {
     fieldContainer.appendChild(projectTitle);
     fieldContainer.addEventListener("click", () => {
       displayTODOS(project.todoList, project.name);
-      projectsArray.forEach((item) => {
-        item.isActive = false;
-      });
+      setProjectFalse();
       project.isActive = true;
       sections.home = false;
       sections.today = false;
@@ -137,9 +135,16 @@ function addtoProject() {
   });
 }
 
+function setProjectFalse() {
+  projectsArray.forEach((project) => {
+    project.isActive = false;
+  });
+}
+
 const submitTodo = document.querySelector(".submit-todo");
 submitTodo.addEventListener("click", addtoProject);
 
-// have to set home today and week to false, and when clicking on one of them set all projects to false
+// active css class to show its been clicked, set counter updates, local storage
 
 export default displayNewProjectPopUp;
+export { setProjectFalse };

@@ -8,6 +8,7 @@ import {
 } from "./DOM";
 import { sections } from ".";
 import { setCounter } from "./DOM";
+import { setProjectFalse } from "./projects";
 
 function getWeekTodos() {
   let weekTodos = JSON.parse(localStorage.getItem("weekTodos"));
@@ -40,6 +41,7 @@ sectionBtns.weekBtn.addEventListener("click", () => {
   sections.week = true;
   sections.home = false;
   sections.today = false;
+  setProjectFalse();
   setActiveText();
   displayTODOS(getWeekTodos(), "weekTodos");
 });

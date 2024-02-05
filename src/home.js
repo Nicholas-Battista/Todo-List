@@ -2,6 +2,7 @@ import { sections } from ".";
 import createTODO from "./DOM";
 import { displayTODOS, removeNewTodoPopUp } from "./DOM";
 import { setCounter, setActiveText, sectionBtns, validateInput } from "./DOM";
+import { setProjectFalse } from "./projects";
 
 function getHomeTodos() {
   let homeTodos = JSON.parse(localStorage.getItem("homeTodos"));
@@ -37,6 +38,7 @@ sectionBtns.homeBtn.addEventListener("click", () => {
   sections.home = true;
   sections.today = false;
   sections.week = false;
+  setProjectFalse();
   setActiveText();
   displayTODOS(getHomeTodos(), "homeTodos");
 });
