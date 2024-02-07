@@ -575,7 +575,88 @@ svg:hover {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
   color: black;
   font-weight: bolder;
+  box-shadow: var(--shadow);
+}
+
+.newProjectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  background-color: #3b4a34;
+}
+
+.newProjectHeader h3 {
+  color: #feecf9;
+  padding-left: 3%;
+  font-size: 1.25rem;
+}
+
+.newProjectHeader button {
+  color: #feecf9;
+  border: none;
+  background-color: #3b4a34;
+  padding: 0 1rem 0 0;
+  font-size: 1.5rem;
+}
+
+.newProjectHeader button:hover {
+  cursor: pointer;
+}
+
+.project h3 {
+  padding-left: 15%;
+}
+
+.newProjectBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newProjectBody input {
+  align-self: flex-start;
+  width: 97%;
+  border: none;
+  background-color: #fcebc5;
+  color: black;
+  font-size: 1.5rem;
+  padding: 1rem 0 0 3%;
+}
+
+.newProjectBody input:focus {
+  outline: none;
+}
+
+.newProjectBody input::placeholder {
+  color: #a6a2a2;
+}
+.newProjectBody button {
+  background-color: #fcebc5;
+  border: none;
+  color: #3b4a34;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid #3b4a34;
+}
+
+.newProjectBody button:hover {
+  background-color: #3b4a34;
+  color: #fcebc5;
+  cursor: pointer;
+}
+
+.fieldContainer.project.sectionActive {
+  background-color: #a6a2a2;
+}
+
+.fieldContainer.project:hover {
+  background-color: #a6a2a2;
 }
