@@ -1,7 +1,7 @@
 import displayHome from "./home";
 import displayTodayCounter from "./today";
 import displayWeekCount from "./week";
-import displayNewProjectPopUp from "./projects";
+import { displayToolbarProjects } from "./projects";
 
 let sections = {
   home: true,
@@ -33,5 +33,6 @@ const counters = {
 displayHome();
 displayTodayCounter();
 displayWeekCount();
+displayToolbarProjects();
 
 export { sections, counters };

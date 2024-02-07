@@ -1,6 +1,7 @@
 import todoItem from "./class";
 import { counters } from ".";
 import { sections } from ".";
+import { getProjects, projectsArray } from "./projects";
 
 const sectionBtns = {
   homeBtn: document.querySelector(".home"),
@@ -166,7 +167,11 @@ function removeTodo(array, todo, arrayName, project) {
   const index = array.findIndex((todoItem) => todoItem.title === todo.title);
   if (index !== -1) {
     array.splice(index, 1);
-    localStorage.setItem(arrayName, JSON.stringify(array));
+    if (sections.home || sections.today || sections.week) {
+      localStorage.setItem(arrayName, JSON.stringify(array));
+    } else {
+      localStorage.setItem("projects", JSON.stringify(projectsArray));
+    }
   }
   setCounter(array, arrayName, project);
   if (array.length === 0) {

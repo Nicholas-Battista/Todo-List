@@ -1,7 +1,3 @@
-// when the add project is clicked display popup to give it a name
-// when name is submitted create an array with the name
-// display the project under projects
-// use same methods as home / today so when project is active we add todos to it
 // store project arrays in local storage, on page load show projects and total todos
 
 import { Project } from "./class";
@@ -14,12 +10,20 @@ import {
 import createTODO from "./DOM";
 import { sections } from ".";
 
-let projectsArray = [];
-
 const newProjectBtn = document.querySelector(".addProject");
 newProjectBtn.addEventListener("click", displayNewProjectPopUp);
 
 const mainContainer = document.querySelector(".container");
+
+function getProjects() {
+  let projectsArray = JSON.parse(localStorage.getItem("projects"));
+  if (projectsArray === null) {
+    projectsArray = [];
+  }
+  return projectsArray;
+}
+
+const projectsArray = getProjects();
 
 function displayNewProjectPopUp() {
   const container = document.createElement("div");
@@ -91,10 +95,8 @@ function generateNewProject() {
   const project = new Project(document.querySelector(".projectName").value);
   projectsArray.push(project);
   console.log(projectsArray);
+  localStorage.setItem("projects", JSON.stringify(projectsArray));
   displayToolbarProjects();
-  projectsArray.forEach((project) => {
-    setCounter(project.todoList, project.name, project);
-  });
   mainContainer.classList.toggle("is-inactive");
   document.querySelector(".newProjectPopUp").remove();
   newProjectBtn.addEventListener("click", displayNewProjectPopUp);
@@ -103,6 +105,10 @@ function generateNewProject() {
 function displayToolbarProjects() {
   const projectContainer = document.querySelector(".project-container");
   projectContainer.innerHTML = "";
+
+  if (projectsArray.length === 0) {
+    return;
+  }
 
   projectsArray.forEach((project) => {
     const fieldContainer = document.createElement("div");
@@ -114,15 +120,19 @@ function displayToolbarProjects() {
     fieldContainer.appendChild(projectTitle);
     fieldContainer.addEventListener("click", () => {
       displayTODOS(project.todoList, project.name, project);
+      console.log(projectsArray);
       setProjectFalse();
       project.isActive = true;
       sections.home = false;
       sections.today = false;
       sections.week = false;
+      fieldContainer.classList.add("sectionActive");
     });
 
     const span = document.createElement("span");
     project.span = span;
+    setCounter(project.todoList, project.name, project);
+
     fieldContainer.appendChild(span);
 
     projectContainer.appendChild(fieldContainer);
@@ -131,6 +141,7 @@ function displayToolbarProjects() {
 
 function addtoProject() {
   projectsArray.forEach((project) => {
+    console.log(project);
     if (project.isActive) {
       if (!validateInput()) {
         alert("Please fill in all fields before adding a todo.");
@@ -140,12 +151,20 @@ function addtoProject() {
       displayTODOS(project.todoList, project.name, project);
       setCounter(project.todoList, project.name, project);
       removeNewTodoPopUp();
+      localStorage.setItem("projects", JSON.stringify(projectsArray));
     }
   });
 }
 
 function setProjectFalse() {
+  const fieldContainer = Array.from(
+    document.querySelectorAll(".fieldContainer")
+  );
+  fieldContainer.forEach((container) => {
+    container.classList.remove("sectionActive");
+  });
   projectsArray.forEach((project) => {
+    console.log("changing state");
     project.isActive = false;
   });
 }
@@ -156,4 +175,4 @@ submitTodo.addEventListener("click", addtoProject);
 // active css class to show its been clicked, local storage
 
 export default displayNewProjectPopUp;
-export { setProjectFalse };
+export { setProjectFalse, displayToolbarProjects, getProjects, projectsArray };
