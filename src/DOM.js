@@ -292,4 +292,5 @@ export {
   setActiveText,
   sectionBtns,
   validateInput,
+  createDeleteSvg,
 };

@@ -143,7 +143,7 @@ input {
   border-radius: 0 0 2rem 2rem;
 }
 
-.fieldContainer:nth-of-type(4) {
+.projects {
   background-color: #707070;
   color: #feecf9;
   box-shadow: var(--shadow);
@@ -659,4 +659,11 @@ svg:hover {
 
 .fieldContainer.project:hover {
   background-color: #a6a2a2;
+  color: #feecf9;
+}
+
+.left-project {
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
 }

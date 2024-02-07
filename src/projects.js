@@ -6,6 +6,7 @@ import {
   validateInput,
   setCounter,
   removeNewTodoPopUp,
+  createDeleteSvg,
 } from "./DOM";
 import createTODO from "./DOM";
 import { sections } from ".";
@@ -115,9 +116,27 @@ function displayToolbarProjects() {
     fieldContainer.classList.add("fieldContainer");
     fieldContainer.classList.add("project");
 
+    const leftProject = document.createElement("div");
+    leftProject.classList.add("left-project");
+
+    const trashCan = createDeleteSvg();
+    trashCan.addEventListener("click", () => {
+      fieldContainer.remove();
+      const index = projectsArray.findIndex(
+        (projectItem) => projectItem.name === project.name
+      );
+      if (index !== -1) {
+        projectsArray.splice(index, 1);
+      }
+      localStorage.setItem("projects", JSON.stringify(projectsArray));
+    });
+
+    leftProject.appendChild(trashCan);
+
     const projectTitle = document.createElement("h3");
     projectTitle.textContent = project.name;
-    fieldContainer.appendChild(projectTitle);
+    leftProject.appendChild(projectTitle);
+    fieldContainer.appendChild(leftProject);
     fieldContainer.addEventListener("click", () => {
       displayTODOS(project.todoList, project.name, project);
       console.log(projectsArray);
